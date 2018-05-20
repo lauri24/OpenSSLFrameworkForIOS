@@ -14,7 +14,9 @@
 
 ### Configuration
 
-OPENSSL_VERSION="1.0.2o"
+OPENSSL_VERSION="1.1.1-pre6"
+#OPENSSL_VERSION="1.1.0h"
+#OPENSSL_VERSION="1.0.2o"
 
 FRAMEWORK="openssl.framework"
 FRAMEWORK_BIN="${FRAMEWORK}/openssl"
@@ -217,20 +219,20 @@ function valid_macos()
 
 function clean()
 {
-	echo "Cleaning macOS..."
-	set -x
-	$RM_B "${MAC_HEADER_DEST}"
-	$RM_B -rf "${MAC_INCLUDES_DIR}"
-	$RM_B -rf "${MAC_LIB_DIR}"
-	$RM_B -rf "${MAC_BUILD_DIR}"
-	[ $DEBUG -ne 1 ] && set +x
-
 	echo "Cleaning iOS..."
 	set -x
 	$RM_B "${IOS_HEADER_DEST}"
 	$RM_B -rf "${IOS_INCLUDES_DIR}"
 	$RM_B -rf "${IOS_LIB_DIR}"
 	$RM_B -rf "${IOS_BUILD_DIR}"
+	[ $DEBUG -ne 1 ] && set +x
+
+	echo "Cleaning macOS..."
+	set -x
+	$RM_B "${MAC_HEADER_DEST}"
+	$RM_B -rf "${MAC_INCLUDES_DIR}"
+	$RM_B -rf "${MAC_LIB_DIR}"
+	$RM_B -rf "${MAC_BUILD_DIR}"
 	[ $DEBUG -ne 1 ] && set +x
 
 	echo "Clean complete"

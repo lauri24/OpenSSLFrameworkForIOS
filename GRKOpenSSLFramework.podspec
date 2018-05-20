@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GRKOpenSSLFramework"
   s.module_name  = "openssl"
-  s.version      = "1.0.2.#{("a".."z").to_a.index 'o'}"
+  s.version      = "1.1.0.#{("a".."z").to_a.index 'h'}"
   s.summary      = "OpenSSL for iOS and OS X"
   s.description  = "OpenSSL Framework binaries."
   s.homepage     = "https://github.com/levigroker/OpenSSL/"
@@ -12,9 +12,9 @@ Pod::Spec.new do |s|
   s.ios.pod_target_xcconfig = {'ENABLE_BITCODE' => 'YES' }
   s.osx.pod_target_xcconfig = {'ENABLE_BITCODE' => 'NO' }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.ios.vendored_frameworks = 'OpenSSL-iOS/bin/openssl.framework'
 
-  s.osx.deployment_target = '10.8'
+  s.osx.deployment_target = '10.13'
   s.osx.vendored_frameworks = 'OpenSSL-macOS/bin/openssl.framework'
 end
