@@ -114,6 +114,7 @@
 		195D5A6020B1C86300B263F5 /* x509err.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59F620B1C86300B263F5 /* x509err.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A6120B1C86300B263F5 /* x509v3.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59F720B1C86300B263F5 /* x509v3.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A6220B1C86300B263F5 /* x509v3err.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59F820B1C86300B263F5 /* x509v3err.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		195D5A6320B1CA7700B263F5 /* openssl.h in Headers */ = {isa = PBXBuildFile; fileRef = C71BFA041D395F47006DBF18 /* openssl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB6EADB21F620B0800CC0B1E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6EADB01F620B0800CC0B1E /* libcrypto.a */; };
 		DB6EADB31F620B0800CC0B1E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6EADB11F620B0800CC0B1E /* libssl.a */; };
 /* End PBXBuildFile section */
@@ -514,6 +515,7 @@
 				195D5A0C20B1C86300B263F5 /* comp.h in Headers */,
 				195D5A6220B1C86300B263F5 /* x509v3err.h in Headers */,
 				195D5A2720B1C86300B263F5 /* idea.h in Headers */,
+				195D5A6320B1CA7700B263F5 /* openssl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
