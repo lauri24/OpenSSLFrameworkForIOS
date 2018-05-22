@@ -30,7 +30,7 @@ The repo does NOT contain pre-built binaries, you should re-build them.
 Set the OPENSSL_VERSION string in the 'master_build.sh' script.
 
 #### Clone the desired repo/branch
-Ex: ./master_build.sh clone OpenSSL_1_1_1-pre6
+1. Clone, using the  `./master_build.sh clone OpenSSL_1_1_1-pre6`
 - If branch arg is omitted, it builds from "master"
 
 #### Build the libraries for all of the required architectures
@@ -68,8 +68,6 @@ the pod and get access to the headers and LIPO archives created above.
 This work is licensed under the OpenSSL (OpenSSL/SSLeay) License.
 
 ### About
-A professional iOS engineer by day, my name is Wyllys Ingersoll. Authoring a blog
-
 Twitter [@wyllysinva](https://twitter.com/wyllysinva)  
 Email [wyllys@gmail.com](mailto:wyllys@gmail.com)  
 
