@@ -1,4 +1,4 @@
-GRKOpenSSLFramework
+OpenSSLFrameworkForIOS
 =======
 OpenSSL CocoaPod which vends pre-built frameworks for iOS and OSX.
 
@@ -7,16 +7,18 @@ OpenSSL CocoaPod which vends pre-built frameworks for iOS and OSX.
 This is merely a wrapper which builds off of work done by others. The original comes from 
 [https://github.com/krzyzanowskim/OpenSSL](https://github.com/krzyzanowskim/OpenSSL) and 
 includes work done by [@jcavar](https://github.com/jcavar/OpenSSL) to build proper
-frameworks. I have repackaged that work as a CocoaPod such that OpenSSL can be used by
-macOS and iOS projects requiring frameworks.
+frameworks. Additional work by Levi Groker (https://github.com/levigroker/GRKOpenSSLFramework).
+
+Additional work done by me to build from the 1.1.1 OpenSSL branches and to cleanup the number
+of files under git control.  Also automated the download of the openssl tree
 
 Please see the Reference section below for more details.
 
 ### Installing
 
-Simply add `GRKOpenSSLFramework` to your podfile:
+Simply add `OpenSSLFrameworkForIOS` to your podfile:
 
-	pod 'GRKOpenSSLFramework'
+	pod 'OpenSSLFrameworkForIOS'
 
 ### Building
 
@@ -54,17 +56,16 @@ The build scripts and projects are all tailored for the 1.1.0 series of OpenSSL,
 [https://github.com/krzyzanowskim/OpenSSL/issues/9](https://github.com/krzyzanowskim/OpenSSL/issues/9)  
 [https://github.com/krzyzanowskim/OpenSSL/pull/27](https://github.com/krzyzanowskim/OpenSSL/pull/27)  
 [https://github.com/jcavar/OpenSSL](https://github.com/jcavar/OpenSSL)  
+[https://github.com/levigroker/GRKOpenSSLFramework](https://github.com/levigroker/GRKOpenSSLFramework)
 [https://pewpewthespells.com/blog/convert_static_to_dynamic.html](https://pewpewthespells.com/blog/convert_static_to_dynamic.html)  
 
 ### Licence
 This work is licensed under the OpenSSL (OpenSSL/SSLeay) License.
-Please see the included [LICENSE.txt](https://github.com/levigroker/OpenSSL/blob/master/LICENSE.txt) for complete details.
 
 ### About
-A professional iOS engineer by day, my name is Levi Brown. Authoring a blog
-[grokin.gs](http://grokin.gs), I am reachable via:
+A professional iOS engineer by day, my name is Wyllys Ingersoll. Authoring a blog
 
-Twitter [@levigroker](https://twitter.com/levigroker)  
-Email [levigroker@gmail.com](mailto:levigroker@gmail.com)  
+Twitter [@wyllysinva](https://twitter.com/wyllysinva)  
+Email [wyllys@gmail.com](mailto:wyllys@gmail.com)  
 
 Your constructive comments and feedback are always welcome.
