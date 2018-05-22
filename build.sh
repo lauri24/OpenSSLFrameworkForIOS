@@ -64,7 +64,7 @@ build()
    mkdir -p "lib-${TYPE}"
    
    rm -rf openssl-${OPENSSL_VERSION}
-   tar xfz openssl-${OPENSSL_VERSION}.tar.gz
+   tar xfz openssl-${OPENSSL_VERSION}.tgz
    pushd . > /dev/null
    cd "openssl-${OPENSSL_VERSION}"
 
@@ -107,7 +107,7 @@ build()
    # rm -rf "openssl-${OPENSSL_VERSION}"
 }
 
-build "i386" "${IPHONESIMULATOR_SDK}" "ios"
+# build "i386" "${IPHONESIMULATOR_SDK}" "ios"
 build "x86_64" "${IPHONESIMULATOR_SDK}" "ios"
 build "armv7" "${IPHONEOS_SDK}" "ios"
 build "armv7s" "${IPHONEOS_SDK}" "ios"
@@ -116,12 +116,10 @@ build "arm64" "${IPHONEOS_SDK}" "ios"
 mkdir -p include-ios
 cp -r /tmp/openssl-${OPENSSL_VERSION}-arm64/include/openssl include-ios/
 
-#rm -rf /tmp/openssl-${OPENSSL_VERSION}*
+rm -rf /tmp/openssl-${OPENSSL_VERSION}*
 
 #build "i386" "${OSX_SDK}" "macos"
 #build "x86_64" "${OSX_SDK}" "macos"
-
 #mkdir -p include-macos
 #cp -r /tmp/openssl-${OPENSSL_VERSION}-x86_64/include/openssl include-macos/
-
 #rm -rf /tmp/openssl-${OPENSSL_VERSION}*

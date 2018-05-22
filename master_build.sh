@@ -7,16 +7,14 @@
 #   2. Generate the `openssl.h` umbrella header for macOS and iOS based on the contents of
 #      the `include-macos` and `include-ios` directories.
 #
-# Levi Brown
-# mailto:levigroker@gmail.com
-# September 8, 2017
+# Wyllys Ingersoll
+# mailto:wyllys@gmail.com
+# May 22, 2018
 ##
 
 ### Configuration
-
-OPENSSL_VERSION="1.1.1-pre6"
-#OPENSSL_VERSION="1.1.0h"
-#OPENSSL_VERSION="1.0.2o"
+#OPENSSL_VERSION="1.1.1-pre6"
+OPENSSL_VERSION="1.1.0-stable"
 
 FRAMEWORK="openssl.framework"
 FRAMEWORK_BIN="${FRAMEWORK}/openssl"
@@ -39,7 +37,6 @@ UMBRELLA_HEADER_SCRIPT="framework_scripts/create_umbrella_header.sh"
 UMBRELLA_STATIC_INCLUDES="framework_scripts/static_includes.txt"
 
 ###
-
 function fail()
 {
     echo "Failed: $@" >&2
@@ -50,7 +47,8 @@ function usage()
 {
 	[[ "$@" = "" ]] || echo "$@" >&2
 	echo "Usage:" >&2
-	echo "$0 build|valid [ios|macos]|clean" >&2
+	echo "$0 clone [branch]|build|valid [ios|macos]|clean" >&2
+	echo "    clone   Clone OpenSSL source repo and checkout a branch to build (set OPENSSL_BRANCH_NAME in this script)." >&2
 	echo "    build   Builds OpenSSL libraries from source." >&2
 	echo "    header  Generates macOS and iOS umbrella headers." >&2
 	echo "    valid   Validates the frameworks." >&2
@@ -60,6 +58,29 @@ function usage()
 	echo "    ex.: $0 clean" >&2
 	echo "" >&2
     exit 1
+}
+
+function clone()
+{
+	#
+	# Clone the tree and then make a tgz file because we re-use the source
+	# tree to building each different architecture.
+	#
+	branch=${1:-"master"}
+	echo "BRANCH: $branch"
+	here=$(pwd)
+        pushd . > /dev/null
+	cd /tmp
+	mkdir openssl-$OPENSSL_VERSION
+	git clone https://github.com/openssl/openssl.git openssl-$OPENSSL_VERSION
+	cd openssl-$OPENSSL_VERSION
+	if [ ! -z "$branch" ]; then
+		git checkout $branch
+	fi
+	cd ..
+	tar cf $here/openssl-$OPENSSL_VERSION.tgz openssl-$OPENSSL_VERSION
+	# rm -rf openssl-$OPENSSL_VERSION
+	popd . > /dev/null
 }
 
 function build()
@@ -258,6 +279,9 @@ fi
 command="$1"
 shift
 case $command in
+    clone)
+		clone $1
+    ;;
     build)
 		if [[ $# -le 0 ]]; then
 			build

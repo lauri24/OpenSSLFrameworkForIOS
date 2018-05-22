@@ -5,6 +5,7 @@
 #
 #  Created by Josip Cavar on 15/07/16.
 #  Modifications by @levigroker
+#  Modifications by Wyllys@gmail.com
 #  Copyright © 2016 krzyzanowskim. All rights reserved.
 
 

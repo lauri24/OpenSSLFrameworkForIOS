@@ -9,48 +9,53 @@ This is merely a wrapper which builds off of work done by others. The original c
 includes work done by [@jcavar](https://github.com/jcavar/OpenSSL) to build proper
 frameworks. Additional work by Levi Groker (https://github.com/levigroker/GRKOpenSSLFramework).
 
-Additional work done by me to build from the 1.1.1 OpenSSL branches and to cleanup the number
-of files under git control.  Also automated the download of the openssl tree
+Additional work done by Wyllys Ingersoll (https://github.com/wyllys66/OpenSSLFrameworkForIOS) to
+build from the 1.1.1 OpenSSL branches and to cleanup the number of files under git control.
+Also added ability to clone directly from a specific OpenSSL github repo branch.
 
 Please see the Reference section below for more details.
 
 ### Installing
 
-Simply add `OpenSSLFrameworkForIOS` to your podfile:
-
-	pod 'OpenSSLFrameworkForIOS'
+1. Clone the repo.
+2. Follow the build instructions below.
+3. add `OpenSSLFrameworkForIOS` to your podfile:
+```
+pod 'OpenSSLFrameworkForIOS, :path => "/PATH/TO/YOUR/CLONE/OpenSSLFrameworkForIOS"
+```
+4. Rebuild your project.
 
 ### Building
+The repo does NOT contain pre-built binaries, you should re-build them. 
+Set the OPENSSL_VERSION string in the 'master_build.sh' script.
 
-While the repository does contain the pre-built frameworks, if you want to re-build them:
+#### Clone the desired repo/branch
+Ex: ./master_build.sh clone OpenSSL_1_1_1-pre6
+- If branch arg is omitted, it builds from "master"
 
-#### iOS
+#### Build the libraries for all of the required architectures
+
+1. Clean, using the `./master_build.sh clean` command.
+2. Build, using the `./master_build.sh build` command.
+
+Next, build the frameworks so that your project can just include
+the pod and get access to the headers and LIPO archives created above.
+
+#### Build iOS framework
 1. Open in Xcode: OpenSSL/OpenSSL-iOS/OpenSSL-iOS.xcodeproj
 2. Clean Build Folder (Option-Shift-Command-K)
 3. Ensure "Generic iOS Device" is the selected build target.
 4. Build
-5. Use the `./_master_build.sh valid ios` command to validate the built framework.
+5. Use the `./master_build.sh valid ios` command to validate the built framework.
 6. Result is located: OpenSSL/OpenSSL-iOS/bin/openssl.framework
 
-#### macOS
+#### Build macOS framework 
 1. Open in Xcode: OpenSSL/OpenSSL-macOS/OpenSSL-macOS.xcodeproj
 2. Clean Build Folder (Option-Shift-Command-K)
 3. Build
 4. Build again. This is needed to ensure the modulemap file is available.
-5. Use the `./_master_build.sh valid macos` command to validate the built framework.
+5. Use the `./master_build.sh valid macos` command to validate the built framework.
 6. Result is located: OpenSSL/OpenSSL-macOS/bin/openssl.framework
-
-### Updating OpenSSL Version
-
-The build scripts and projects are all tailored for the 1.1.0 series of OpenSSL, so if you're attempting to use a different series you might run into some issues.
-
-1. Download the source tarball from [https://www.openssl.org/source/](https://www.openssl.org/source/)
-2. Download the PGP sig as well, and validate the tarball's signature.
-3. Place the downloaded file in this directory.
-4. Update the `OPENSSL_VERSION` value in the `_master_build.sh`
-5. Clean, using the `./_master_build.sh clean` command.
-6. Build, using the `./_master_build.sh build` command.
-7. Follow the steps outlined in "Building" (above).
 
 ### Reference
 [https://github.com/krzyzanowskim/OpenSSL/issues/9](https://github.com/krzyzanowskim/OpenSSL/issues/9)  
