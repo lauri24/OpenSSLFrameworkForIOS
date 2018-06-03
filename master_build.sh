@@ -13,8 +13,8 @@
 ##
 
 ### Configuration
-#OPENSSL_VERSION="1.1.1-pre6"
-OPENSSL_VERSION="1.1.0-stable"
+OPENSSL_VERSION="1_1_1-pre7"
+#OPENSSL_VERSION="1.1.0-stable"
 
 FRAMEWORK="openssl.framework"
 FRAMEWORK_BIN="${FRAMEWORK}/openssl"
@@ -76,6 +76,7 @@ function clone()
 	cd openssl-$OPENSSL_VERSION
 	if [ ! -z "$branch" ]; then
 		git checkout $branch
+		pwd
 	fi
 	cd ..
 	tar cf $here/openssl-$OPENSSL_VERSION.tgz openssl-$OPENSSL_VERSION
@@ -97,7 +98,7 @@ function build()
 
 function header()
 {
-	export CONTENT=$(<"${UMBRELLA_STATIC_INCLUDES}")
+	# export CONTENT=$(<"${UMBRELLA_STATIC_INCLUDES}")
 
 	# Create the macOS umbrella header
 	HEADER_DEST="${MAC_HEADER_DEST}"

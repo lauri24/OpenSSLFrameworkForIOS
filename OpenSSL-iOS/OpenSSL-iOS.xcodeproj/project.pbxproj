@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191BDB7D20A46E970071871F /* openssl_umbrella_template.h in Headers */ = {isa = PBXBuildFile; fileRef = DB6EADB51F62119800CC0B1E /* openssl_umbrella_template.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D59F920B1C86300B263F5 /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D598F20B1C86300B263F5 /* aes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D59FA20B1C86300B263F5 /* asn1.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D599020B1C86300B263F5 /* asn1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		195D59FB20B1C86300B263F5 /* asn1_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D599120B1C86300B263F5 /* asn1_mac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D59FC20B1C86300B263F5 /* asn1err.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D599220B1C86300B263F5 /* asn1err.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D59FD20B1C86300B263F5 /* asn1t.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D599320B1C86300B263F5 /* asn1t.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D59FE20B1C86300B263F5 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D599420B1C86300B263F5 /* async.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -458,7 +456,6 @@
 				195D5A0720B1C86300B263F5 /* camellia.h in Headers */,
 				195D5A0E20B1C86300B263F5 /* conf.h in Headers */,
 				195D5A1D20B1C86300B263F5 /* ec.h in Headers */,
-				191BDB7D20A46E970071871F /* openssl_umbrella_template.h in Headers */,
 				195D5A2F20B1C86300B263F5 /* modes.h in Headers */,
 				195D5A2920B1C86300B263F5 /* kdferr.h in Headers */,
 				195D5A2820B1C86300B263F5 /* kdf.h in Headers */,
@@ -479,7 +476,6 @@
 				195D5A4020B1C86300B263F5 /* rand_drbg.h in Headers */,
 				195D5A0820B1C86300B263F5 /* cast.h in Headers */,
 				195D5A4C20B1C86300B263F5 /* sm2err.h in Headers */,
-				195D59FB20B1C86300B263F5 /* asn1_mac.h in Headers */,
 				195D5A5720B1C86300B263F5 /* tls1.h in Headers */,
 				195D5A4B20B1C86300B263F5 /* sm2.h in Headers */,
 				195D5A4220B1C86300B263F5 /* rc2.h in Headers */,

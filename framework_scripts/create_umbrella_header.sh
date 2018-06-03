@@ -71,7 +71,11 @@ if [ "$CONTENT" = "" ] ; then
 	# Ideally we could dynamically generate the order of the imports based on a
 	# deterministic dependency mapping, but that's outside the scope of effort I can
 	# devote at this time.
-	CONTENT=$($FIND_B "${INCLUDES_DIR}" -name "*.h" -print | $SED_B -Ee 's|^.*/(openssl/.+\.h)$|#import <\1>|g')
+	#
+	# NOTE: ordering with this method appears to work OK with openssl 1.1.1 
+	# - filter out asn1_mac.h (not needed)
+	#
+	CONTENT=$($FIND_B "${INCLUDES_DIR}" -name "*.h" -print | grep -v asn1_mac| $SED_B -Ee 's|^.*/(openssl/.+\.h)$|#import <\1>|g')
 fi
 
 # Populate the template by replacing the @DATE@,  @YEAR@, and GENERATED_CONTENT@ tags appropriately
