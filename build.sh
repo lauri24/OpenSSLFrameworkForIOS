@@ -107,9 +107,7 @@ build()
    # rm -rf "openssl-${OPENSSL_VERSION}"
 }
 
-# build "i386" "${IPHONESIMULATOR_SDK}" "ios"
 build "x86_64" "${IPHONESIMULATOR_SDK}" "ios"
-build "armv7" "${IPHONEOS_SDK}" "ios"
 build "armv7s" "${IPHONEOS_SDK}" "ios"
 build "arm64" "${IPHONEOS_SDK}" "ios"
 

@@ -2,7 +2,7 @@
 //  openssl.h
 //  OpenSSL-iOS
 //
-//  Created by @levigroker Sun Jun  3 11:38:29 EDT 2018.
+//  Created by @levigroker Tue Sep 11 21:16:07 EDT 2018.
 //  Copyright © 2018 @levigroker. All rights reserved.
 //
 
@@ -102,8 +102,6 @@ FOUNDATION_EXPORT const unsigned char OpenSSL_iOSVersionString[];
 #import <openssl/safestack.h>
 #import <openssl/seed.h>
 #import <openssl/sha.h>
-#import <openssl/sm2.h>
-#import <openssl/sm2err.h>
 #import <openssl/srp.h>
 #import <openssl/srtp.h>
 #import <openssl/ssl.h>

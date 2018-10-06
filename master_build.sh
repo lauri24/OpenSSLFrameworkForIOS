@@ -13,8 +13,8 @@
 ##
 
 ### Configuration
-OPENSSL_VERSION="1_1_1-pre7"
-#OPENSSL_VERSION="1.1.0-stable"
+#OPENSSL_VERSION="1_1_1-pre7"
+OPENSSL_VERSION="1.1.1-stable"
 
 FRAMEWORK="openssl.framework"
 FRAMEWORK_BIN="${FRAMEWORK}/openssl"

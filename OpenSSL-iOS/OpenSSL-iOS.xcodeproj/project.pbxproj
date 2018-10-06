@@ -88,8 +88,6 @@
 		195D5A4820B1C86300B263F5 /* safestack.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59DE20B1C86300B263F5 /* safestack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A4920B1C86300B263F5 /* seed.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59DF20B1C86300B263F5 /* seed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A4A20B1C86300B263F5 /* sha.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59E020B1C86300B263F5 /* sha.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		195D5A4B20B1C86300B263F5 /* sm2.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59E120B1C86300B263F5 /* sm2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		195D5A4C20B1C86300B263F5 /* sm2err.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59E220B1C86300B263F5 /* sm2err.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A4D20B1C86300B263F5 /* srp.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59E320B1C86300B263F5 /* srp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A4E20B1C86300B263F5 /* srtp.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59E420B1C86300B263F5 /* srtp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		195D5A4F20B1C86300B263F5 /* ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = 195D59E520B1C86300B263F5 /* ssl.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -475,9 +473,7 @@
 				195D5A4320B1C86300B263F5 /* rc4.h in Headers */,
 				195D5A4020B1C86300B263F5 /* rand_drbg.h in Headers */,
 				195D5A0820B1C86300B263F5 /* cast.h in Headers */,
-				195D5A4C20B1C86300B263F5 /* sm2err.h in Headers */,
 				195D5A5720B1C86300B263F5 /* tls1.h in Headers */,
-				195D5A4B20B1C86300B263F5 /* sm2.h in Headers */,
 				195D5A4220B1C86300B263F5 /* rc2.h in Headers */,
 				195D5A2E20B1C86300B263F5 /* mdc2.h in Headers */,
 				195D5A0A20B1C86300B263F5 /* cms.h in Headers */,
@@ -654,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -705,7 +701,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
