@@ -2,8 +2,8 @@
 //  openssl.h
 //  OpenSSL-macOS
 //
-//  Created by @levigroker Tue Sep 11 21:16:07 EDT 2018.
-//  Copyright © 2018 @levigroker. All rights reserved.
+//  Created by @levigroker Wed Jan 16 21:53:24 EST 2019.
+//  Copyright © 2019 @levigroker. All rights reserved.
 //
 
 #ifndef openssl_h

@@ -24,7 +24,6 @@ OSX_PLATFORM=$(xcrun --sdk macosx --show-sdk-platform-path)
 OSX_SDK=$(xcrun --sdk macosx --show-sdk-path)
 
 
-
 # Clean up whatever was left from our previous build
 
 rm -rf include-ios include-macos lib-ios lib-macos
@@ -37,15 +36,16 @@ configure() {
     SDK_VERSION=$4
     DEPLOYMENT_VERSION=$5
     
-
     export CROSS_TOP="${PLATFORM}/Developer"
-    export CROSS_SDK="${OS}${SDK_VERSION}.sdk"
+    export CROSS_SDK="$(basename ${SDK_VERSION})"
+
     if [ "$ARCH" == "x86_64" -a "$PLATFORM" == "macos" ]; then
        ./Configure darwin64-x86_64-cc -no-async  --prefix="/tmp/openssl-${OPENSSL_VERSION}-${ARCH}" --openssldir="/tmp/openssl-${OPENSSL_VERSION}-${ARCH}" &> "/tmp/openssl-${OPENSSL_VERSION}-${ARCH}.log"
-       sed -ie "s!^CFLAG=!CFLAG=-isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} -arch $ARCH -mios-simulator-version-min=${DEPLOYMENT_VERSION} -miphoneos-version-min=${DEPLOYMENT_VERSION} !" "Makefile"
+       sed -ie "s!^CFLAGS=!CFLAGS=-isysroot ${CROSS_TOP}/SDKs/${CROSS_SDK} -arch $ARCH -mios-simulator-version-min=${DEPLOYMENT_VERSION} -miphoneos-version-min=${DEPLOYMENT_VERSION} !" "Makefile"
    else
        ./Configure iphoneos-cross -no-asm -no-async --prefix="/tmp/openssl-${OPENSSL_VERSION}-${ARCH}" --openssldir="/tmp/openssl-${OPENSSL_VERSION}-${ARCH}" &> "/tmp/openssl-${OPENSSL_VERSION}-${ARCH}.log"
-       sed -ie "s!^CFLAG=!CFLAG=-mios-simulator-version-min=${DEPLOYMENT_VERSION} -miphoneos-version-min=${DEPLOYMENT_VERSION} !" "Makefile"
+       sed -ie "s!^CFLAGS=!CFLAGS=-mios-simulator-version-min=${DEPLOYMENT_VERSION} -miphoneos-version-min=${DEPLOYMENT_VERSION} !" "Makefile"
+       #sed -ie "s!^CNF_CFLAGS=!CNF_CFLAGS=-isysroot ${PLATFORM} -fno-common !" "Makefile"
        perl -i -pe 's|static volatile sig_atomic_t intr_signal|static volatile int intr_signal|' crypto/ui/ui_openssl.c
    fi
 }
@@ -75,9 +75,9 @@ build()
    if [ "$TYPE" == "ios" ]; then
       # IOS
       if [ "$ARCH" == "x86_64" ] || [ "$ARCH" == "i386" ]; then
-         configure "iPhoneSimulator" $ARCH ${IPHONESIMULATOR_PLATFORM} ${IPHONEOS_SDK_VERSION} ${IPHONEOS_DEPLOYMENT_VERSION}
+         configure "iPhoneSimulator" $ARCH ${IPHONESIMULATOR_PLATFORM} ${IPHONESIMULATOR_SDK} ${IPHONEOS_DEPLOYMENT_VERSION}
       else
-         configure "iPhoneOS" $ARCH ${IPHONEOS_PLATFORM} ${IPHONEOS_SDK_VERSION} ${IPHONEOS_DEPLOYMENT_VERSION}
+         configure "iPhoneOS" $ARCH ${IPHONEOS_PLATFORM} ${IPHONEOS_SDK} ${IPHONEOS_DEPLOYMENT_VERSION}
       fi
    elif [ "$TYPE" == "macos" ]; then    
       #OSX
@@ -92,7 +92,7 @@ build()
 
    # sed -i.bak -e 's/\/bundle\//\/dynamiclib\//g' Makefile.shared
    make &> "/tmp/openssl-${OPENSSL_VERSION}-${ARCH}.log"
-   make install &> "/tmp/openssl-${OPENSSL_VERSION}-${ARCH}.log"
+   make install_sw &> "/tmp/openssl-${OPENSSL_VERSION}-${ARCH}.log"
    popd > /dev/null
 
    # Add arch to library
@@ -108,13 +108,14 @@ build()
 }
 
 build "x86_64" "${IPHONESIMULATOR_SDK}" "ios"
+build "armv7" "${IPHONEOS_SDK}" "ios"
 build "armv7s" "${IPHONEOS_SDK}" "ios"
 build "arm64" "${IPHONEOS_SDK}" "ios"
 
 mkdir -p include-ios
 cp -r /tmp/openssl-${OPENSSL_VERSION}-arm64/include/openssl include-ios/
 
-rm -rf /tmp/openssl-${OPENSSL_VERSION}*
+#rm -rf /tmp/openssl-${OPENSSL_VERSION}*
 
 #build "i386" "${OSX_SDK}" "macos"
 #build "x86_64" "${OSX_SDK}" "macos"
