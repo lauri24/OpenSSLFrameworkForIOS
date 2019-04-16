@@ -5,7 +5,6 @@
 
 # Setup paths to stuff we need
 
-set -x
 OPENSSL_VERSION=${OPENSSL_VERSION:-""}
 
 DEVELOPER=$(xcode-select --print-path)
@@ -45,7 +44,6 @@ configure() {
    else
        ./Configure iphoneos-cross -no-asm -no-async --prefix="/tmp/openssl-${OPENSSL_VERSION}-${ARCH}" --openssldir="/tmp/openssl-${OPENSSL_VERSION}-${ARCH}" &> "/tmp/openssl-${OPENSSL_VERSION}-${ARCH}.log"
        sed -ie "s!^CFLAGS=!CFLAGS=-mios-simulator-version-min=${DEPLOYMENT_VERSION} -miphoneos-version-min=${DEPLOYMENT_VERSION} !" "Makefile"
-       #sed -ie "s!^CNF_CFLAGS=!CNF_CFLAGS=-isysroot ${PLATFORM} -fno-common !" "Makefile"
        perl -i -pe 's|static volatile sig_atomic_t intr_signal|static volatile int intr_signal|' crypto/ui/ui_openssl.c
    fi
 }
@@ -115,7 +113,7 @@ build "arm64" "${IPHONEOS_SDK}" "ios"
 mkdir -p include-ios
 cp -r /tmp/openssl-${OPENSSL_VERSION}-arm64/include/openssl include-ios/
 
-#rm -rf /tmp/openssl-${OPENSSL_VERSION}*
+rm -rf /tmp/openssl-${OPENSSL_VERSION}*
 
 #build "i386" "${OSX_SDK}" "macos"
 #build "x86_64" "${OSX_SDK}" "macos"
