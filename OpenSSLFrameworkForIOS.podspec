@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "OpenSSLFrameworkForIOS"
   s.module_name  = "openssl"
-  s.version      = "1.1.1"
+  s.version      = "1.1.0"
   s.summary      = "OpenSSL for iOS and OS X"
   s.description  = "OpenSSL Framework binaries."
-  s.homepage     = "https://github.com/wyllys66/OpenSSLFrameworkForIOS/"
+  s.homepage     = "https://github.com/lauri24/OpenSSLFrameworkForIOS/"
   s.license	     = { :type => 'OpenSSL (OpenSSL/SSLeay)', :file => 'LICENSE.txt' }
-  s.source       = { :git => "https://github.com/wyllys66/OpenSSLFrameworkForIOS.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/lauri24/OpenSSLFrameworkForIOS.git", :tag => "#{s.version}" }
   s.authors       =  {'Wyllys Ingersoll' => 'wyllys@gmail.com'}
   
   s.ios.pod_target_xcconfig = {'ENABLE_BITCODE' => 'YES' }

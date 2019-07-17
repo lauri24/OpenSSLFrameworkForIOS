@@ -5,7 +5,7 @@
 
 # Setup paths to stuff we need
 
-OPENSSL_VERSION=${OPENSSL_VERSION:-""}
+OPENSSL_VERSION=${OPENSSL_VERSION:-"1_1_0-stable"}
 
 DEVELOPER=$(xcode-select --print-path)
 

@@ -14,7 +14,7 @@
 
 ### Configuration
 #OPENSSL_VERSION="1_1_1-pre7"
-OPENSSL_VERSION="1.1.1-stable"
+OPENSSL_VERSION="1_1_0-stable"
 
 FRAMEWORK="openssl.framework"
 FRAMEWORK_BIN="${FRAMEWORK}/openssl"
